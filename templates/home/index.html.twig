@@ -10,7 +10,10 @@
 	</p>
 	{% if app.user %}
 		<div class="row text-center mt-3">
-			<div class="col">
+			<div class="col-sm">
+				<a href="{{ path('picture.index') }}" class="button">Galerie</a>
+			</div>
+			<div class="col-sm">
 				<a class="button" href="{{ path('app_logout') }}">
 					Déconnexion
 				</a>
