@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Galerie de
+	{{ app.user.pseudo }}
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center">Ajouter une Photo</h1>
+
+	{{ form_start(form) }}
+	<div class="row">
+		<div class="col">
+			{{ form_row(form.title) }}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			{{ form_row(form.imageFile) }}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			{{ form_row(form.save, {
+                attr: {
+                    class: 'button'
+                }
+            }) }}
+		</div>
+	</div>
+
+	{{ form_end(form) }}
+
+{% endblock %}

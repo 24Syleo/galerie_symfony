@@ -1,9 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ta galerie photo
+{% block title %}Galerie de
+	{{ app.user.pseudo }}
 {% endblock %}
 
 {% block body %}
 	<h1 class="text-center">Bienvenue dans ta Galerie Photo
 		{{ app.user.pseudo }}</h1>
+
+	<div class="comtainer">
+		<div class="row">
+			<div class="col-1">
+				<a href="{{ path('picture.create') }}" class="button">Ajouter</a>
+			</div>
+			<div class="col-11">
+
+				{{ dump(pictures) }}
+			</div>
+		</div>
+	</div>
 {% endblock %}

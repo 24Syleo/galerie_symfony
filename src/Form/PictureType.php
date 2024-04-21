@@ -3,11 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Pictures;
-use App\Entity\User;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class PictureType extends AbstractType
 {
@@ -15,12 +15,10 @@ class PictureType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('path')
-            ->add('User', EntityType::class, [
-                'class' => User::class,
-                'choice_label' => 'id',
-            ])
-        ;
+            ->add('imageFile', FileType::class)
+            ->add('save', SubmitType::class, [
+                'label' => "Valider"
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
