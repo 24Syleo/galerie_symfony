@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-lg">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="{{ path('home') }}">
+			<img src="{{ asset('pics/logo.png') }}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+			Galerie
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav mx-auto">
+				<a class="nav-link {{ app.current_route == 'home' ? 'active' : '' }}" href="{{ path('home') }}">Home</a>
+				<a class="nav-link {{ app.current_route == 'galerie' ? 'active' : '' }}" href="#">Galerie</a>
+			</div>
+		</div>
+	</div>
+</nav>
