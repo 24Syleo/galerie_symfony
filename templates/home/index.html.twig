@@ -8,17 +8,27 @@
 	<p class="text-center">
 		Dans un premier temps connecte toi ou inscrit toi.
 	</p>
-	<div class="row text-center  mt-3">
-		<div class="col-sm">
-			<a class="button" href="{{ path('register') }}">
-				s'inscrire
-			</a>
+	{% if app.user %}
+		<div class="row text-center mt-3">
+			<div class="col">
+				<a class="button" href="{{ path('app_logout') }}">
+					Déconnexion
+				</a>
+			</div>
 		</div>
-		<div class="col-sm">
-			<a class="button">
-				se connecter
-			</a>
+	{% else %}
+		<div class="row text-center  mt-3">
+			<div class="col-sm">
+				<a class="button" href="{{ path('register') }}">
+					s'inscrire
+				</a>
+			</div>
+			<div class="col-sm">
+				<a class="button" href="{{ path('app_login') }}">
+					se connecter
+				</a>
+			</div>
 		</div>
-	</div>
+	{% endif %}
 
 {% endblock %}
