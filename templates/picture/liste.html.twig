@@ -1,0 +1,15 @@
+{% extends 'galerie.html.twig' %}
+
+
+{% block content %}
+	<div class="row justify-content-center">
+		{% for pic in pictures %}
+			<div class="col-md-3">
+				<figure class="figure m-2">
+					<img src="{{ vich_uploader_asset(pic) }}" class="figure-img img-fluid rounded" alt="{{ pic.title }}">
+					<figcaption class="figure-caption fs-2">{{ pic.title }}</figcaption>
+				</figure>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

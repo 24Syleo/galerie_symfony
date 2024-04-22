@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Galerie de
+	{{ app.user.pseudo }}
+{% endblock %}
+
+{% block body %}
+
+	<h1 class="text-center">
+		Galerie de
+		{{ app.user.pseudo }}</h1>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-1 my-2 align-items-center justify-content-center">
+				<div class="mb-3">
+					<a href="{{ path('picture.create') }}" class="button {{ app.current_route == 'picture.create' ? 'activeTemplate' : '' }}">Ajouter</a>
+				</div>
+				<div class="mb-3 d-flex flex-row nowrap">
+					<a href="{{ path('picture.index') }}" class="toggleTemplate {{ app.current_route == 'picture.index' ? 'activeTemplate' : '' }}">C</a>
+					<a href="{{ path('picture.list') }}" class="toggleTemplate {{ app.current_route == 'picture.list' ? 'activeTemplate' : '' }}">L</a>
+				</div>
+			</div>
+			<div id="galCarousel" class="col-md-11 d-block my-2">
+				{% block content %}{% endblock %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -103,36 +103,16 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--secondary);
 }
 
-/* checkbox 2 position galerie */
-
-#galLabel {
-    position: relative;
+.toggleTemplate {
+    border: solid 2px var(--secondary);
+    padding: 0.2em 0.5em;
     cursor: pointer;
-    top: 0.5rem;
-    height: 2rem;
-    width: 4rem;
-    background-color: var(--secondary);
-    border-radius: 1rem;
+    color: var(--secondary);
+    box-shadow: var(--shadow);
     transition: all ease-in-out 0.3s;
 }
 
-#galLabel::after{
-    content:" "; 
-    position: absolute;
-    top: 0.25rem;
-    left: 0.25rem;
+.activeTemplate {
     background-color: var(--tertiary);
-    height: 1.5rem;
-    width: 1.5rem;
-    border-radius: 50%;
-    transition: all 0.3s ease-in-out;
-}
-
-#galChange:checked + #galLabel::after {
-    transform: translateX(2rem);
-    background-color: var(--secondary);
-}
-
-#galChange:checked + #galLabel {
-    background-color: var(--tertiary);
+    box-shadow: none;
 }

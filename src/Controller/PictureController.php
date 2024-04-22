@@ -27,6 +27,17 @@ class PictureController extends AbstractController
         ]);
     }
 
+    #[Route('/list', name: 'list')]
+    public function list(PicturesRepository $repo): Response
+    {
+        $user = $this->getUser();
+        $pictures = $repo->getPicByUser($user);
+
+        return $this->render('picture/liste.html.twig', [
+            'pictures' => $pictures,
+        ]);
+    }
+
     #[Route('/create', name: 'create')]
     public function create(Request $req, EntityManagerInterface $em): Response
     {
