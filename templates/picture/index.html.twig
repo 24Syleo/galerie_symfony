@@ -10,15 +10,16 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-1">
+			<div class="col-md-1 my-2 align-items-center justify-content-center">
 				<a href="{{ path('picture.create') }}" class="button">Ajouter</a>
+				<input type="checkbox" id="galChange" class="d-none"><label id="galLabel" for="galChange" class=""></label>
 			</div>
-			<div class="col-11">
+			<div id="galCarousel" class="col-md-11 d-block my-2">
 				<div id="galerieCarousel" class="carousel slide carousel-fade">
 					<div class="carousel-inner">
 						{% for pic in pictures %}
 							<div class="carousel-item {{ loop.index == 1 ? 'active' : '' }}">
-								<img src="{{ vich_uploader_asset(pic) }}" class="d-block w-100" alt="{{ pic.title }}">
+								<img src="{{ vich_uploader_asset(pic) }}" class="d-block w-100 rounded" alt="{{ pic.title }}">
 							</div>
 						{% endfor %}
 					</div>
@@ -30,6 +31,18 @@
 						<span class="carousel-control-next-icon" aria-hidden="true"></span>
 						<span class="visually-hidden">Next</span>
 					</button>
+				</div>
+			</div>
+			<div id="galList" class="col-md-11 d-none my-2">
+				<div class="row justify-content-center">
+					{% for pic in pictures %}
+						<div class="col-md-3">
+							<figure class="figure m-2">
+								<img src="{{ vich_uploader_asset(pic) }}" class="figure-img img-fluid rounded" alt="{{ pic.title }}">
+								<figcaption class="figure-caption fs-2">{{ pic.title }}</figcaption>
+							</figure>
+						</div>
+					{% endfor %}
 				</div>
 			</div>
 		</div>
