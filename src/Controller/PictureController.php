@@ -19,7 +19,8 @@ class PictureController extends AbstractController
     #[Route('/', name: 'index')]
     public function index(PicturesRepository $repo): Response
     {
-        $pictures = $repo->findAll();
+        $user = $this->getUser();
+        $pictures = $repo->getPicByUser($user);
 
         return $this->render('picture/index.html.twig', [
             'pictures' => $pictures,
