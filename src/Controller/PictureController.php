@@ -24,7 +24,7 @@ class PictureController extends AbstractController
         $user = $this->getUser();
         $pictures = $repo->getPicByUser($user);
 
-        $searchForm = $this->createForm(SearchType::class);
+        $searchForm = $this->createForm(SearchType::class, $pictures);
         $searchForm->handleRequest($req);
         if ($searchForm->isSubmitted() && $searchForm->isValid()) {
             $data = $searchForm->getData();
@@ -46,7 +46,7 @@ class PictureController extends AbstractController
         $user = $this->getUser();
         $pictures = $repo->getPicByUser($user);
 
-        $searchForm = $this->createForm(SearchType::class);
+        $searchForm = $this->createForm(SearchType::class, $pictures);
         $searchForm->handleRequest($req);
         if ($searchForm->isSubmitted() && $searchForm->isValid()) {
             $data = $searchForm->getData();

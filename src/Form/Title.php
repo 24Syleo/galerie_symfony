@@ -17,11 +17,7 @@ class Title extends AbstractType
             'class' => Pictures::class,
             'placeholder' => 'Picture',
             'choice_label' => 'title',
-
-            // choose which fields to use in the search
-            // if not passed, *all* fields are used
             'searchable_fields' => ['title'],
-
             'security' => 'ROLE_USER',
         ]);
     }
