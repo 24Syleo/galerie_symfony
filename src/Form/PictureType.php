@@ -6,8 +6,8 @@ use App\Entity\Pictures;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\UX\Dropzone\Form\DropzoneType;
 
 class PictureType extends AbstractType
 {
@@ -15,7 +15,7 @@ class PictureType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('imageFile', FileType::class)
+            ->add('imageFile', DropzoneType::class)
             ->add('save', SubmitType::class, [
                 'label' => "Valider"
             ]);
