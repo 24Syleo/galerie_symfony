@@ -13,6 +13,7 @@
 				{% if app.user %}
 					<a class="nav-link {{ app.current_route starts with 'picture.' ? 'active' : '' }}" href="{{ path('picture.index') }}">Galerie</a>
 					<a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+					<a class="nav-link" href="{{ path('user.show', { id: app.user.id }) }}">{{ app.user.pseudo }}</a>
 				{% else %}
 					<a class="nav-link {{ app.current_route == 'register' ? 'active' : '' }}" href="{{ path('register') }}">Inscription</a>
 					<a class="nav-link {{ app.current_route == 'app_login' ? 'active' : '' }}" href="{{ path('app_login') }}">Connexion</a>

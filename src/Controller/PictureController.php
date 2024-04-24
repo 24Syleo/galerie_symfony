@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Pictures;
-use App\Form\SearchType;
 use App\Form\PictureType;
+use App\Form\UserType;
 use App\Repository\PicturesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,19 +24,17 @@ class PictureController extends AbstractController
         $user = $this->getUser();
         $pictures = $repo->getPicByUser($user);
 
-        $searchForm = $this->createForm(SearchType::class, $pictures);
-        $searchForm->handleRequest($req);
-        if ($searchForm->isSubmitted() && $searchForm->isValid()) {
-            $data = $searchForm->getData();
-            $id = $data['title']->getId();
-            return $this->redirectToRoute('picture.edit', [
-                'id' => $id
-            ]);
+        $userForm = $this->createForm(UserType::class);
+        $userForm->handleRequest($req);
+        if ($userForm->isSubmitted() && $userForm->isValid()) {
+            $data = $userForm->getData();
+            $id = $data->getPictures()->first()->getId();
+            return $this->redirectToRoute('picture.edit', array('id' => $id));
         }
 
         return $this->render('picture/index.html.twig', [
             'pictures' => $pictures,
-            'searchForm' => $searchForm
+            'userForm' => $userForm
         ]);
     }
 
@@ -46,19 +44,17 @@ class PictureController extends AbstractController
         $user = $this->getUser();
         $pictures = $repo->getPicByUser($user);
 
-        $searchForm = $this->createForm(SearchType::class, $pictures);
-        $searchForm->handleRequest($req);
-        if ($searchForm->isSubmitted() && $searchForm->isValid()) {
-            $data = $searchForm->getData();
-            $id = $data['title']->getId();
-            return $this->redirectToRoute('picture.edit', [
-                'id' => $id
-            ]);
+        $userForm = $this->createForm(UserType::class);
+        $userForm->handleRequest($req);
+        if ($userForm->isSubmitted() && $userForm->isValid()) {
+            $data = $userForm->getData();
+            $id = $data->getPictures()->first()->getId();
+            return $this->redirectToRoute('picture.edit', array('id' => $id));
         }
 
         return $this->render('picture/liste.html.twig', [
             'pictures' => $pictures,
-            'searchForm' => $searchForm
+            'userForm' => $userForm
         ]);
     }
 

@@ -21,13 +21,14 @@ class PicturesRepository extends ServiceEntityRepository
         parent::__construct($registry, Pictures::class);
     }
 
-    public function getPicByUser($user) {
+    public function getPicByUser($user)
+    {
         return $this->createQueryBuilder('p')
-        ->andWhere('p.User = :user')
-        ->setParameter('user', $user)
-        ->orderBy('p.id', 'ASC')
-        ->getQuery()
-        ->getResult();
+            ->andWhere('p.User = :user')
+            ->setParameter('user', $user)
+            ->orderBy('p.id', 'ASC')
+            ->getQuery()
+            ->getResult();
     }
 
     //    /**

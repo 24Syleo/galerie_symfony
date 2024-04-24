@@ -1,0 +1,16 @@
+{% extends 'galerie.html.twig' %}
+
+{% block title %}User
+{% endblock %}
+
+{% block body %}
+
+	<h1 class="text-center">Profil de
+		{{ user.pseudo }}</h1>
+
+	<p>pseudo:
+		{{ user.pseudo }}</p>
+	<p>email:
+		{{ user.email }}</p>
+
+{% endblock %}
